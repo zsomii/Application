@@ -18,6 +18,7 @@ namespace Application.Domain.Service
         // Create
         void CreateSingleLog(Log log);
         void CreateExceptionLog(string request, string stackTrace);
+        void CreateAuthenticationLog(LogLevel logLevel, string additionalInfo);
 
         // List
         List<Log> GetLogs(LogLevel? logLevel = null, string keyword = null, int page = 0);
@@ -57,8 +58,6 @@ namespace Application.Domain.Service
         {
             throw new NotImplementedException();
         }
-
-
         
         public void CreateAuthenticationLog(LogLevel logLevel, string message)
         {

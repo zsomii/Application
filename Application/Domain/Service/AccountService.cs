@@ -30,7 +30,7 @@ namespace Application.Domain.Service
         User FindUser(string userId);
         User ValidateUser(HttpRequest request, ClaimsPrincipal user);
         User FindUserByEmail(string email);
-        LoginResponseDto Login(LoginDto loginDto, string currentHost, string languageId);
+        LoginResponseDto Login(LoginDto loginDto);
         bool HasPermission(string userName, string permission);
         void InvalidateUserWithPermission(string permissionId);
         void InvalidateUserWithRole(string name);
@@ -258,7 +258,7 @@ namespace Application.Domain.Service
             }
         }
 
-        public LoginResponseDto Login(LoginDto loginDto, string currentHost, string languageId)
+        public LoginResponseDto Login(LoginDto loginDto)
         {
             var appUser = _userManager.FindByNameAsync(loginDto.UserName).Result;
             if (appUser == null)
